@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FirstApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+      body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+  </head>
+  <body>
+    <% if flash %>
+      <section class="content" style="min-height: auto;">
+        <% flash.each do |key, value| %>
+          <div class="row">
+            <div class="alert alert-<%= key %>">
+              <%= value %>
+            </div>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

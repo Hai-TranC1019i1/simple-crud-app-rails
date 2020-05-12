@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Listing Articles</h1>
+  <a class='btn btn-success' href="<%= new_article_path %>">
+    New article
+  </a>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each_with_index do |article,i| %>
+        <tr>
+          <th scope="row"><%= i %>
+          </th>
+          <td><%= link_to article.title, article_path(article) %></td>
+          <td>
+            <span class="text-primary"><%= link_to 'Edit', edit_article_path(article) %></span>
+            <span class="text-danger"><%= link_to 'Delete', article_path(article),
+                                                            method: :delete,
+                                                            data: { confirm: 'Are you sure?' } %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

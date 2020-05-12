@@ -1,0 +1,23 @@
+<div class='container'>
+  <div class="row">
+    <div class='col-lg-offset-4'>
+      <h1> Article detail </h1>
+    </div>
+  </div>
+  <div class="row">
+    <h3>Title: </h3>
+    <p><%= @article.title %></p>
+    <h3>Content: </h3>
+    <p><%= @article.text %></p>
+    <a class="btn btn-success" href="<%= articles_path %>">Back</a>
+    <a class="btn btn-success" href="<%= edit_article_path(@article) %>">Edit</a>
+  </div>
+  <div class="row">
+    <h2>Comments</h2>
+    <%= render @article.comments %>
+  </div>
+  <div class="row">
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form'%>
+  </div>
+</div>
