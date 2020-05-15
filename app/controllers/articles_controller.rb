@@ -1,6 +1,6 @@
+# http_basic_authenticate_with name: 'haibnk',
+# password: 'secret', only: :destroy
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: 'haibnk',
-    password: 'secret', only: :destroy
   
   def index
     @articles = Article.all

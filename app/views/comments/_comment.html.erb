@@ -1,14 +1,14 @@
+<div class='comment' id="comment-<%= comment.id %>">
 <p>
-  <strong>Name:</strong>
-  <%= comment.user.name %>
+  <strong>  <%= comment.user.name %> </strong>
 </p>
 <p>
-  <strong>Comment:</strong>
   <%= comment.body %>
 </p>
 <p>
   <span>Like</span>
   <span><%= link_to 'Delete', [comment.article, comment],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></span>
+              method: :delete, data: { confirm: 'Are you sure?' }, 
+              class: 'delete-comment', remote: true %></span>
 </p>
+</div>
