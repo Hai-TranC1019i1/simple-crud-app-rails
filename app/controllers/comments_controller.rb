@@ -9,12 +9,10 @@ class CommentsController < ApplicationController
     @article = get_by_article(:article_id)
     @comment = @article.comments.create(comments_params)
 
-    respond_to do |format|
+     respond_to do |format|
       if @comment.errors.any?
-        format.html { render 'articles/show' }
         format.json do
-          render json: @comment.errors,
-                 status: :unprocessable_entity
+          render json: @comment.errors.full_messages.first
         end
       else
         format.html { redirect_to article_path(@article) }
